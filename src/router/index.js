@@ -51,6 +51,6 @@ export default new Router({
         title: '404 Not Found',
       }
     },
-    {path: '/', redirect: '/ProjectManagement'}
+    {path: '/', redirect: '/projectManagement'}
   ]
 })
