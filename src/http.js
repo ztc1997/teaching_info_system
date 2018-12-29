@@ -1,5 +1,7 @@
 import axios from 'axios'
 import store from './store'
+import router from './router'
+import {CLEAR_USER} from '@/store/mutation-types'
 
 axios.defaults.timeout = 5000
 axios.defaults.baseURL = '/api'
@@ -10,6 +12,26 @@ axios.interceptors.request.use(
     if (store.state.CSRFToken !== '')
       config.headers['X-CSRF-TOKEN'] = store.state.CSRFToken
     return config
+  }
+)
+
+axios.interceptors.response.use(
+  response => {
+    return response
+  },
+  error => {
+    if (error.response) {
+      switch (error.response.status) {
+        case 401:
+          // 返回 401 清除用户信息并跳转到登录页面
+          store.commit(CLEAR_USER)
+          router.replace({
+            path: '/login',
+            query: {redirect: router.currentRoute.fullPath}
+          })
+      }
+    }
+    return Promise.reject(error.response.data)   // 返回接口返回的错误信息
   }
 )
 
