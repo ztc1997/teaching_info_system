@@ -70,29 +70,24 @@
                             <v-card-text>
                                 <v-form ref="form" v-model="valid" lazy-validation>
                                     <v-container grid-list-md>
-                                        <v-layout wrap>
-                                            <v-flex xs12 md6>
-                                                <v-text-field v-model="dialogItem.form.currentPassword"
-                                                              label="当前密码"
-                                                              type="password"
-                                                              :rules="rules.currentPassword"
-                                                              autocomplete="current-password"></v-text-field>
-                                            </v-flex>
-                                            <v-flex xs12 md6>
-                                                <v-text-field v-model="dialogItem.form.newPassword"
-                                                              label="新密码"
-                                                              type="password"
-                                                              :rules="rules.newPassword"
-                                                              autocomplete="new-password"></v-text-field>
-                                            </v-flex>
-                                            <v-flex xs12 md6>
-                                                <v-text-field v-model="dialogItem.confirmPassword"
-                                                              label="确认密码"
-                                                              type="password"
-                                                              :rules="rules.confirmPassword"
-                                                              autocomplete="new-password"></v-text-field>
-                                            </v-flex>
-                                        </v-layout>
+                                        <v-text-field v-model="dialogItem.form.currentPassword"
+                                                      label="当前密码"
+                                                      type="password"
+                                                      :rules="rules.currentPassword"
+                                                      autocomplete="current-password"></v-text-field>
+
+                                        <v-text-field v-model="dialogItem.form.newPassword"
+                                                      label="新密码"
+                                                      type="password"
+                                                      :rules="rules.newPassword"
+                                                      autocomplete="new-password"></v-text-field>
+
+                                        <v-text-field v-model="dialogItem.confirmPassword"
+                                                      label="确认密码"
+                                                      type="password"
+                                                      :rules="rules.confirmPassword"
+                                                      autocomplete="new-password"></v-text-field>
+
                                     </v-container>
                                 </v-form>
                             </v-card-text>
